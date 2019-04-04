@@ -60,3 +60,7 @@ def test_handler_success(mocker):
 
     r = {'statusCode': 200, 'body': json.dumps(body)}
     assert handler.handler(i, '') == r
+
+
+def test_validate_url_nok_malformed_http():
+    assert handler.validate_url('http/:/sbruble.com/') is False
